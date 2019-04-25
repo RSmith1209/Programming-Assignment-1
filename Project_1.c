@@ -2,12 +2,27 @@
 
 # include <stdio.h>
 int main(){
-    
-//ask user for the text to encrypt
+    switch(){
+        case 1:
+        //encryption of rotation cypher function prototype
+        break;
+        case 2:
+        //decryption of rotation cypher function prototype
+        break;
+        case 3:
+        //encryption of substitution cypher function prototype
+        break;
+        case 4:
+        //decryption of substitution cypher function prototype
+        break;
+    }
 
-//convert users text to a variable
-
-//print the ciphered text
 }
 
-//rotation cipher definition
+//encryption of rotation cypher definition
+
+//decryption of rotation cypher definition
+
+//encryption of substitution cypher definition
+
+//decryption of substitution cypher definition
