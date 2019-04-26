@@ -37,15 +37,7 @@ void rotationEncrypt(char* text, int key){
    for(n = 0; text[n] != '\0'; ++n){
 	    msg = text[n]; 
 	    
-	    if (msg >= 'a' && msg <= 'z')   {
-	        msg = msg + key;
-	        
-	        if(msg > 'z') {
-	            msg = msg - 'z' + 'a' - 1;
-	    }
-	    text[n] = msg;	    
-	}
-	else if(msg >= 'A' && msg <= 'Z')   {
+	if (msg >= 'A' && msg <= 'Z')   {
 	    msg = msg + key;
 	    
 	    if (msg > 'Z')   {
@@ -71,15 +63,7 @@ void rotationDecrypt(char* text, int key){
   for(n = 0; text[n] != '\0'; ++n){
 	    msg = text[n];
 	    
-	    if (msg >= 'a' && msg <= 'z')   {
-	        msg = msg - key;
-	        
-	        if(msg < 'a') {
-	            msg = msg + 'z' - 'a' + 1;
-	    }
-	    text[n] = msg;	    
-	}
-	else if(msg >= 'A' && msg <= 'Z')   {
+	if (msg >= 'A' && msg <= 'Z')   {
 	    msg = msg - key;
 	    
 	    if (msg < 'A')   {
