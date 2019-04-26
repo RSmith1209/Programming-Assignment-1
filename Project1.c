@@ -6,7 +6,7 @@ int main(){
     int selection;
     printf("Select an option:\n 1) Rotation Encryption\n 2) Rotation Decryption\n 3) Substitution Encryption\n 4) Substitution Decryption\n");
     printf("Option: ");
-    scanf("%d", &selection);
+    scanf(" %d", &selection);
     switch(selection){
         case 1:
        rotationEncrypt();//encryption of rotation cypher function prototype
@@ -29,9 +29,9 @@ void rotationEncrypt(){
     char text[100], msg;
 	int n, key;
    printf("Enter message to be encrypted: "); 
-   scanf("%[^\n]*c", text);
+   scanf(" %*c", text);
    printf("Enter key: ");
-   scanf("%d", &key);
+   scanf(" %d", &key);
    for(n = 0; text[n] != '\0'; ++n){
 	    msg = text[n]; 
 	    
@@ -56,9 +56,12 @@ void rotationEncrypt(){
     printf("Encrypted message is: %s", text);
     
 }
+//////////////////////////////////////////////////////////
 
-
-//decryption of rotation cypher definition
+///////////////*decryption of rotation cypher definition*//////////////
+void rotationDecrypt(){
+    
+}
 
 //encryption of substitution cypher definition
 
