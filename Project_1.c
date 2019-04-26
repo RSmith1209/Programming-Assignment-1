@@ -1,25 +1,35 @@
-//define the rotation cipher function
+//prototypes
 
 # include <stdio.h>
 int main(){
+    
+    printf("Select an option:\n a) Rotation Encryption\n b) Rotation Decryption\n c) Substitution Encryption\n d) Substitution Decryption\n");
+    printf("Option: \n")
     switch(){
-        case 1:
+        case 'a':
         //encryption of rotation cypher function prototype
         break;
-        case 2:
+        case 'b':
         //decryption of rotation cypher function prototype
         break;
-        case 3:
+        case 'c':
         //encryption of substitution cypher function prototype
         break;
-        case 4:
+        case 'd':
         //decryption of substitution cypher function prototype
         break;
     }
 
 }
 
-//encryption of rotation cypher definition
+/////////////*encryption of rotation cypher definition*/////////////
+void rotationEncrypt(char* text[100], int key){
+   printf("Enter message to be encrypted: "); 
+   scanf("%c", text);
+   printf("Enter key: ");
+   scanf("%d", key);
+}
+
 
 //decryption of rotation cypher definition
 
