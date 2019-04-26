@@ -1,23 +1,23 @@
-//prototypes
-
+/////////////////*prototypes*//////////////////
+void rotationEncrypt();
+///////////////////////////////////////////////
 # include <stdio.h>
 int main(){
-    char selection;
-    int n;
-    printf("Select an option:\n a) Rotation Encryption\n b) Rotation Decryption\n c) Substitution Encryption\n d) Substitution Decryption\n");
+    int selection;
+    printf("Select an option:\n 1) Rotation Encryption\n 2) Rotation Decryption\n 3) Substitution Encryption\n 4) Substitution Decryption\n");
     printf("Option: ");
-    scanf("%c", &selection);
+    scanf("%d", &selection);
     switch(selection){
-        case 'a':
-        //encryption of rotation cypher function prototype
+        case 1:
+       rotationEncrypt();//encryption of rotation cypher function prototype
         break;
-        case 'b':
+        case 2:
         //decryption of rotation cypher function prototype
         break;
-        case 'c':
+        case 3:
         //encryption of substitution cypher function prototype
         break;
-        case 'd':
+        case 4:
         //decryption of substitution cypher function prototype
         break;
     }
@@ -25,11 +25,36 @@ int main(){
 }
 
 /////////////*encryption of rotation cypher definition*/////////////
-void rotationEncrypt(char* text[100], int key){
+void rotationEncrypt(){
+    char text[100], msg;
+	int n, key;
    printf("Enter message to be encrypted: "); 
-   scanf("%c", text);
+   scanf("%[^\n]*c", text);
    printf("Enter key: ");
-   scanf("%d", key);
+   scanf("%d", &key);
+   for(n = 0; text[n] != '\0'; ++n){
+	    msg = text[n]; 
+	    
+	    if (msg >= 'a' && msg <= 'z')   {
+	        msg = msg + key;
+	        
+	        if(msg > 'z') {
+	            msg = msg - 'z' + 'a' - 1;
+	    }
+	    text[n] = msg;	    
+	}
+	else if(msg >= 'A' && msg <= 'Z')   {
+	    msg = msg + key;
+	    
+	    if (msg > 'Z')   {
+	       msg = msg - 'Z' + 'A' - 1; 
+	    }
+	    text[n] = msg;
+	}
+    
+}
+    printf("Encrypted message is: %s", text);
+    
 }
 
 
