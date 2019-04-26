@@ -14,7 +14,7 @@ int main(){
        rotationEncrypt(text, key);//encryption of rotation cypher function prototype
         break;
         case 2:
-        //decryption of rotation cypher function prototype
+        rotationDecrypt(text, key);//decryption of rotation cypher function prototype
         break;
         case 3:
         //encryption of substitution cypher function prototype
@@ -31,9 +31,9 @@ void rotationEncrypt(char* text, int key){
     char msg;
 	int n;
    printf("Enter message to be encrypted: "); 
-   scanf(" %[^\n]*c", text);
+   scanf(" %[^\n]c", text);
    printf("Key: ");
-   scanf(" %d", &key);
+   scanf("%d", &key);
    for(n = 0; text[n] != '\0'; ++n){
 	    msg = text[n]; 
 	    
@@ -61,12 +61,37 @@ void rotationEncrypt(char* text, int key){
 //////////////////////////////////////////////////////////
 
 ///////////////*decryption of rotation cypher definition*//////////////
-void rotationDecrypt(){
-  char text[100], msg;
-  int n, key;
-  
+void rotationDecrypt(char* text, int key){
+  char msg;
+  int n;
+  printf("Enter message to be decrypted: "); 
+   scanf(" %[^\n]c", text);
+   printf("Key: ");
+   scanf("%d", &key);
+  for(n = 0; text[n] != '\0'; ++n){
+	    msg = text[n];
+	    
+	    if (msg >= 'a' && msg <= 'z')   {
+	        msg = msg - key;
+	        
+	        if(msg < 'a') {
+	            msg = msg + 'z' - 'a' + 1;
+	    }
+	    text[n] = msg;	    
+	}
+	else if(msg >= 'A' && msg <= 'Z')   {
+	    msg = msg - key;
+	    
+	    if (msg < 'A')   {
+	       msg = msg + 'Z' - 'A' +1; 
+	    }
+	    text[n] = msg;
+	}
+    
 }
-
+printf("Decrypted message is: %s", text);
+}
+///////////////////////////////////////////////////////////////
 //encryption of substitution cypher definition
 
 //decryption of substitution cypher definition
