@@ -1,5 +1,8 @@
 /////////////////*prototypes*//////////////////
 void rotationEncrypt(char* text, int key);
+void rotationDecrypt(char* text, int key);
+void subEncrypt();
+void subDecrypt();
 ///////////////////////////////////////////////
 # include <stdio.h>
 int main(){
@@ -17,10 +20,10 @@ int main(){
         rotationDecrypt(text, key);//decryption of rotation cypher function prototype
         break;
         case 3:
-        //encryption of substitution cypher function prototype
+        subEncrypt();//encryption of substitution cypher function prototype
         break;
         case 4:
-        //decryption of substitution cypher function prototype
+        void subDecrypt();//decryption of substitution cypher function prototype
         break;
     }
 
@@ -31,7 +34,7 @@ void rotationEncrypt(char* text, int key){
     char msg;
 	int n;
    printf("Enter message to be encrypted: "); 
-   scanf(" %[^\n]c", text);
+   scanf(" %[^\n]*c", text);
    printf("Key: ");
    scanf("%d", &key);
    for(n = 0; text[n] != '\0'; ++n){
@@ -50,14 +53,14 @@ void rotationEncrypt(char* text, int key){
     printf("Encrypted message is: %s\n", text);
     
 }
-//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
 
 ///////////////*decryption of rotation cypher definition*//////////////
 void rotationDecrypt(char* text, int key){
   char msg;
   int n;
   printf("Enter message to be decrypted: "); 
-   scanf(" %[^\n]c", text);
+   scanf(" %[^\n]*c", text);
    printf("Key: ");
    scanf("%d", &key);
   for(n = 0; text[n] != '\0'; ++n){
@@ -73,9 +76,65 @@ void rotationDecrypt(char* text, int key){
 	}
     
 }
-printf("Decrypted message is: %s", text);
+printf("Decrypted message is: %s\n", text);
 }
-///////////////////////////////////////////////////////////////
-//encryption of substitution cypher definition
+//////////////////////////////////////////////////////////////////////
 
+////////////////*encryption of substitution cypher definition*//////////
+void subEncrypt(){
+
+    char text[100], newAlpha[26];
+    char alpha[26] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q', 'R','S','T','U','V','W','X','Y','Z'};
+    char character;
+    int i, n;
+    printf("Enter a message to encrypt: \n");
+    scanf(" %[^\n]*c", text);
+    printf("Enter your substituted alphabet IN CAPITALS: ");
+    scanf(" %s", newAlpha);
+    
+    for(i = 0; text[i] != '\0'; i++) {
+        character = text[i]; 
+        
+        if(character >= 'a' && character <= 'z')    {
+            character = character -32;
+        }
+    
+    for (n = 0; n <= 25; n++)   {
+        if (character == alpha[n])  {
+            character = newAlpha[n];
+            text[i] = character;
+            break;
+        }
+    }
+}
+    printf("Encrypted message is: %s\n", text);
+}
+///////////////////////////////////////////////////////////////////////
 //decryption of substitution cypher definition
+void subDecrypt() {
+char text[100], newAlpha[26];
+    char alpha[26] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q', 'R','S','T','U','V','W','X','Y','Z'};
+    char character;
+    int i, n;
+    printf("Enter a message to decrypt: \n");
+    scanf(" %[^\n]*c", text);
+    printf("Enter the substituted alphabet IN CAPITALS: ");
+    scanf(" %s", newAlpha);
+    
+    for(i = 0; text[i] != '\0'; i++) {
+        character = text[i]; 
+        
+        if(character >= 'a' && character <= 'z')    {
+            character = character -32;
+        }
+    
+    for (n = 0; n <= 25; n++)   {
+        if (character == newAlpha[n])  {
+            character = alpha[n];
+            text[i] = character;
+            break;
+        }
+    }
+}
+    printf("Decrypted message is: %s\n", text);
+}
