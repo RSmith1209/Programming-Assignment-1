@@ -163,16 +163,20 @@ char text[100], subAlpha[26];
 }
 /////////////////////////////////////////////////////////////////////
 
-/////////////////////*Brute force attack on rotation encryption*///////////
-//Code contains the same rotation decryption code of original however//////
-//instead of entering a key all possible keys are tested using a for loop//
-///////////////////////////////////////////////////////////////////////////
+/////////////////////*Brute force attack on rotation encryption*/////////////
+//An encrypted message is inputed, the key is unknown, therefore all ////////
+//possible keys are tested. Printed is all results and their corresponding/// 
+//key. User will have to manually locate the most possible result from //////
+//all printed.                                                          /////
+/////////////////////////////////////////////////////////////////////////////
 void bruteDecrypt(){
   char* msg, text[100];
   int n, key;
   printf("Enter message to be decrypted: "); 
   scanf(" %[^\n]*c", text);
-  for(key = 1; key < 27; key++) {
+//Code contains the same rotation decryption code of original however   ///
+//instead of entering a key all possible keys are tested using a for loop//
+  for(key = 1; key < 27; key++) { 
     for(n = 0; text[n] != '\0'; ++n){
 	    msg = text[n];
 	    
