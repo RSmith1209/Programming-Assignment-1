@@ -35,6 +35,10 @@ int main(){
 }
 
 /////////////*encryption of rotation cypher definition*/////////////
+// A message to be encrypted and a key is inputed, the encrypted////
+// message is printed. The return is voided as there is no value////
+// needed from function.                                        ////
+////////////////////////////////////////////////////////////////////
 void rotationEncrypt(char* text, int key){
    char msg;
    int n;
@@ -61,6 +65,10 @@ void rotationEncrypt(char* text, int key){
 //////////////////////////////////////////////////////////////////////
 
 ///////////////*decryption of rotation cypher definition*//////////////
+//An encrypted message is inputed in CAPITAL letters. The key is///////
+//known and also inputed. The decrypted message is printed.The return//
+//value is voided as no value is required from function.            ///
+///////////////////////////////////////////////////////////////////////
 void rotationDecrypt(char* text, int key){
   char msg;
   int n;
@@ -86,6 +94,10 @@ printf("Decrypted message is: %s\n", text);
 //////////////////////////////////////////////////////////////////////
 
 ////////////////*encryption of substitution cypher definition*//////////
+//A message to be encrypted is inputed and so is the substituted////////
+//alphabet. Printed is the encrypted message. The return value is //////
+//voided as no value is required from function.                   //////
+////////////////////////////////////////////////////////////////////////
 void subEncrypt(){
 
     char text[100], subAlpha[26];
@@ -115,7 +127,12 @@ void subEncrypt(){
     printf("Encrypted message is: %s\n", text);
 }
 ///////////////////////////////////////////////////////////////////////
+
 /////////////*decryption of substitution cypher definition*////////////
+//An encrypted message is inputed as well as a known substituted  /////
+//alphabet. Printed is the decrypted message. The return value is /////
+//voided as no value is required from function.                   /////
+///////////////////////////////////////////////////////////////////////
 void subDecrypt() {
     
 char text[100], subAlpha[26];
@@ -146,10 +163,10 @@ char text[100], subAlpha[26];
 }
 /////////////////////////////////////////////////////////////////////
 
-/////////////////////*Brute force attack on rotation encryption*////////
-//Code contains the same rotation decryption code of original however////
+/////////////////////*Brute force attack on rotation encryption*///////////
+//Code contains the same rotation decryption code of original however//////
 //instead of entering a key all possible keys are tested using a for loop//
-/////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
 void bruteDecrypt(){
   char* msg, text[100];
   int n, key;
