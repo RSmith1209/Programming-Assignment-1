@@ -10,13 +10,13 @@ int main(){
     char text[100];
     int key;
     int selection;
-    printf("Select an option:\n 1) Rotation Encryption\n 2) Rotation Decryption\n 3) Substitution Encryption\n 4) Substitution Decryption\n");
-    printf("5) Brute force Rotatation Decryption\n")
-    printf("Option: ");
+////////////////////////////*MENU*//////////////////////////////////////////
+    printf("Select an option:\n 1) Rotation Encryption\n 2) Rotation Decryption\n 3) Substitution Encryption\n 4) Substitution Decryption\n 5) Brute force Rotatation Decryption\n");
+    printf("Option: "); // Menu is printed
     scanf(" %d", &selection);
     switch(selection){
         case 1:
-       rotationEncrypt(text, key);//encryption of rotation cypher function prototype
+        rotationEncrypt(text, key);//encryption of rotation cypher function prototype
         break;
         case 2:
         rotationDecrypt(text, key);//decryption of rotation cypher function prototype
@@ -28,21 +28,21 @@ int main(){
         subDecrypt();//decryption of substitution cypher function prototype
         break;
         case 5:
-        bruteDecrypt();//brute force decryption of rotation cypher
+        bruteDecrypt();//brute force decryption of rotation cypher prototype
         break;
     }
-
+/////////////////////////////////////////////////////////////////////////
 }
 
 /////////////*encryption of rotation cypher definition*/////////////
 void rotationEncrypt(char* text, int key){
-    char msg;
-	int n;
+   char msg;
+   int n;
    printf("Enter message to be encrypted: "); 
    scanf(" %[^\n]*c", text);
    printf("Key: ");
    scanf("%d", &key);
-   for(n = 0; text[n] != '\0'; ++n){
+   for(n = 0; text[n] != '\0'; ++n){ //each character of message individually has the key added to it
 	    msg = text[n]; 
 	    
 	if (msg >= 'A' && msg <= 'Z')   {
@@ -104,8 +104,8 @@ void subEncrypt(){
             character = character -32;
         }
     
-    for (n = 0; n <= 25; n++)   {
-        if (character == alpha[n])  {
+        for (n = 0; n <= 25; n++)   {
+            if (character == alpha[n])  {
             character = subAlpha[n];
             text[i] = character;
             break;
@@ -134,8 +134,8 @@ char text[100], subAlpha[26];
             character = character -32;
         }
     
-    for (n = 0; n <= 25; n++)   {
-        if (character == subAlpha[n])  {
+        for (n = 0; n <= 25; n++) {
+            if (character == subAlpha[n])  {
             character = alpha[n];
             text[i] = character;
             break;
@@ -146,23 +146,21 @@ char text[100], subAlpha[26];
 }
 /////////////////////////////////////////////////////////
 void bruteDecrypt(){
-    
-char* msg, text[100];
-  int n;
-  int key;
+  char* msg, text[100];
+  int n, key;
   printf("Enter message to be decrypted: "); 
-   scanf(" %[^\n]*c", text);
-   for(key = 1; key < 27; key++) {
-  for(n = 0; text[n] != '\0'; ++n){
+  scanf(" %[^\n]*c", text);
+  for(key = 1; key < 27; key++) {
+    for(n = 0; text[n] != '\0'; ++n){
 	    msg = text[n];
 	    
-	if (msg >= 'A' && msg <= 'Z')   {
+	   if (msg >= 'A' && msg <= 'Z')   {
 	    msg = msg - 1;
 	    
-	    if (msg < 'A')   {
+	       if (msg < 'A')   {
 	       msg = msg + 'Z' - 'A' +1; 
-	    }
-	    text[n] = msg;
+	       }
+	  text[n] = msg;     
 	}
     
 }
