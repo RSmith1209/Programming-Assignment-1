@@ -42,16 +42,16 @@ void rotationEncrypt(char* text, int key){
    scanf(" %[^\n]*c", text);
    printf("Key: ");
    scanf("%d", &key);
-   for(n = 0; text[n] != '\0'; ++n){ //each character of message individually has the key added to it
+   for(n = 0; text[n] != '\0'; ++n){ //the loop for each character of message individually having the key added to it
 	    msg = text[n]; 
 	    
-	if (msg >= 'A' && msg <= 'Z')   {
+	if (msg >= 'A' && msg <= 'Z') { //Capital letters have key added
 	    msg = msg + key;
 	    
 	    if (msg > 'Z')   {
-	       msg = msg - 'Z' + 'A' - 1; 
+	       msg = msg - 'Z' + 'A' - 1; //returns any letters out of range back into range 
 	    }
-	    text[n] = msg;
+	    text[n] = msg; //individual character re-entered into string as new character post rotation
 	}
     
 }
@@ -68,16 +68,16 @@ void rotationDecrypt(char* text, int key){
    scanf(" %[^\n]*c", text);
    printf("Key: ");
    scanf("%d", &key);
-  for(n = 0; text[n] != '\0'; ++n){
+  for(n = 0; text[n] != '\0'; ++n){ // the loop for each character of message individually having key removed
 	    msg = text[n];
 	    
-	if (msg >= 'A' && msg <= 'Z')   {
+	if (msg >= 'A' && msg <= 'Z')  { //the command that removes the key
 	    msg = msg - key;
 	    
-	    if (msg < 'A')   {
+	    if (msg < 'A')   { //returns any letters out of range back into range
 	       msg = msg + 'Z' - 'A' +1; 
 	    }
-	    text[n] = msg;
+	    text[n] = msg; //individual character re-entered into string as the new character (re-rotated back into correct position)
 	}
     
 }
@@ -89,7 +89,7 @@ printf("Decrypted message is: %s\n", text);
 void subEncrypt(){
 
     char text[100], subAlpha[26];
-    char alpha[26] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q', 'R','S','T','U','V','W','X','Y','Z'};
+    char alpha[26] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q', 'R','S','T','U','V','W','X','Y','Z'}; // alphabet declared
     char character;
     int i, n;
     printf("Enter a message to encrypt: \n");
@@ -97,14 +97,14 @@ void subEncrypt(){
     printf("Enter your substituted alphabet IN CAPITALS: ");
     scanf(" %s", subAlpha);
     
-    for(i = 0; text[i] != '\0'; i++) {
+    for(i = 0; text[i] != '\0'; i++) { //the loop that each individual letter in message is replaced with the substituted letter
         character = text[i]; 
         
-        if(character >= 'a' && character <= 'z')    {
+        if(character >= 'a' && character <= 'z') { //command that converts any lower case entered letters to upper case
             character = character -32;
         }
     
-        for (n = 0; n <= 25; n++)   {
+        for (n = 0; n <= 25; n++)   { // the new substituted letter replaces the original in the string
             if (character == alpha[n])  {
             character = subAlpha[n];
             text[i] = character;
@@ -115,7 +115,7 @@ void subEncrypt(){
     printf("Encrypted message is: %s\n", text);
 }
 ///////////////////////////////////////////////////////////////////////
-//decryption of substitution cypher definition/////////////////////////
+/////////////*decryption of substitution cypher definition*////////////
 void subDecrypt() {
     
 char text[100], subAlpha[26];
@@ -127,15 +127,15 @@ char text[100], subAlpha[26];
     printf("Enter the substituted alphabet IN CAPITALS: ");
     scanf(" %s", subAlpha);
     
-    for(i = 0; text[i] != '\0'; i++) {
+    for(i = 0; text[i] != '\0'; i++) { //the loop that each individual letter in message is replaced with the original letter
         character = text[i]; 
         
-        if(character >= 'a' && character <= 'z')    {
+        if(character >= 'a' && character <= 'z') { //command that converts any lower case entered letters to upper case
             character = character -32;
         }
     
         for (n = 0; n <= 25; n++) {
-            if (character == subAlpha[n])  {
+            if (character == subAlpha[n])  { // the new original letter replaces the substituted in the string
             character = alpha[n];
             text[i] = character;
             break;
@@ -144,7 +144,12 @@ char text[100], subAlpha[26];
 }
     printf("Decrypted message is: %s\n", text);
 }
-/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+/////////////////////*Brute force attack on rotation encryption*////////
+//Code contains the same rotation decryption code of original however////
+//instead of entering a key all possible keys are tested using a for loop//
+/////////////////////////////////////////////////////////////////////////
 void bruteDecrypt(){
   char* msg, text[100];
   int n, key;
@@ -167,3 +172,4 @@ void bruteDecrypt(){
 printf("Decrypted message is: %s, with key %d\n", text, key);
 }
 }
+////////////////////////////////////////////////////////////////////
