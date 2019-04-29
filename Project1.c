@@ -10,7 +10,7 @@ int main(){
     char text[100];
     int key;
     int selection;
-////////////////////////////*MENU*//////////////////////////////////////////
+////////////////////////////*MENU*/////////////
     printf("Select an option:\n 1) Rotation Encryption\n 2) Rotation Decryption\n 3) Substitution Encryption\n 4) Substitution Decryption\n 5) Brute force Rotatation Decryption\n");
     printf("Option: "); // Menu is printed
     scanf(" %d", &selection);
